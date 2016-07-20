@@ -1,0 +1,63 @@
+PODS:
+  - Alamofire (3.4.1)
+  - Cell+Rx (1.1):
+    - RxSwift (~> 2.5)
+  - DateTools (1.7.0)
+  - Moya (7.0.0):
+    - Moya/Core (= 7.0.0)
+  - Moya-ObjectMapper/Core (1.3.1):
+    - Moya (~> 7.0)
+    - ObjectMapper (~> 1.3)
+  - Moya-ObjectMapper/RxSwift (1.3.1):
+    - Moya-ObjectMapper/Core
+    - Moya/RxSwift (~> 7.0)
+    - RxSwift (~> 2.0)
+  - Moya/Core (7.0.0):
+    - Alamofire (~> 3.0)
+    - Result (~> 2.0)
+  - Moya/RxSwift (7.0.0):
+    - Moya/Core
+    - RxSwift (~> 2.0)
+  - NSObject+Rx (1.2.1):
+    - RxSwift (~> 2.1)
+  - ObjectMapper (1.3.0)
+  - Permission (1.5)
+  - Result (2.1.3)
+  - RxCocoa (2.6.0):
+    - RxSwift (~> 2.5)
+  - RxOptional (2.0.0):
+    - RxCocoa (~> 2.0)
+    - RxSwift (~> 2.0)
+  - RxSwift (2.6.0)
+  - SDWebImage/Core (3.8.1)
+  - SDWebImage/MapKit (3.8.1):
+    - SDWebImage/Core
+
+DEPENDENCIES:
+  - Cell+Rx
+  - DateTools
+  - Moya-ObjectMapper/RxSwift
+  - NSObject+Rx
+  - Permission
+  - RxCocoa
+  - RxOptional
+  - SDWebImage/MapKit
+
+SPEC CHECKSUMS:
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  Cell+Rx: c8cdcc85ee5ee947042005d1fdb04e4ede3e45b2
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  Moya: f004b82418fb8165ee1fc9f86190db4b3611fda9
+  Moya-ObjectMapper: 52f15abd982efc8ba2ce3fc49619555c926c14a1
+  NSObject+Rx: 5d032a7f161602dec6b82dcf12731e91ce15b8da
+  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
+  Permission: 2d9647f8b994a5faf7e1c5a40d4328fde158c2f2
+  Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
+  RxCocoa: 89ab00d5753502520227940e3a0e0a0413683c6b
+  RxOptional: b77fb47a0190213cf8a37c7a2b7fda28160b4563
+  RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+
+PODFILE CHECKSUM: fb5e90cc5e7f7743f2c141f31f7e7b54ab02f745
+
+COCOAPODS: 1.0.1

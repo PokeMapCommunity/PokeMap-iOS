@@ -1,0 +1,6 @@
+framework module Cell_Rx {
+  umbrella header "Cell+Rx-umbrella.h"
+
+  export *
+  module * { export * }
+}
