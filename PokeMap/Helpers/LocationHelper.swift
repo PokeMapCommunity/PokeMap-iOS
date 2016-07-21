@@ -16,14 +16,14 @@ class LocationHelper {
 
   static let sharedInstance = LocationHelper()
 
-  private let locationManager: CLLocationManager
+  private lazy var locationManager: CLLocationManager = {
+    let locationManager = CLLocationManager()
+    locationManager.distanceFilter = 5
+    return locationManager
+  }()
+
   private var disposeBag = DisposeBag()
   private var notifiedPokemons = [Pokemon]()
-
-  init() {
-    locationManager = CLLocationManager()
-    locationManager.distanceFilter = 10
-  }
 
   func start() {
     locationManager.startMonitoringSignificantLocationChanges()
@@ -36,10 +36,9 @@ class LocationHelper {
       }
       .filter { $0.count > 0 }
       .subscribeNext { pokemons in
-        self.notifiedPokemons = self.notifiedPokemons.unique
-          .filter { !$0.expired }
+        self.notifiedPokemons = self.notifiedPokemons.unique.filter { !$0.expired }
         let watchlistedPokemons = pokemons
-          .filter { Globals.watchlist.contains($0.id) || !self.notifiedPokemons.contains($0) }
+          .filter { Globals.watchlist.contains($0.pokemonId) && !self.notifiedPokemons.contains($0) }
         self.notifiedPokemons = self.notifiedPokemons
           .arrayByAppendingContentsOf(watchlistedPokemons)
           .unique
