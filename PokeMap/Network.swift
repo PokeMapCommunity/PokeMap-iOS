@@ -21,7 +21,7 @@ class Network {
       parameterEncoding: target.parameterEncoding,
       httpHeaderFields: target.headers)
     }, plugins: [
-      NetworkLoggerPlugin(cURL: true)
+      /*NetworkLoggerPlugin(cURL: true)*/
     ])
 }
 
