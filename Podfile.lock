@@ -2,7 +2,10 @@ PODS:
   - Alamofire (3.4.1)
   - Cell+Rx (1.1):
     - RxSwift (~> 2.5)
+  - Crashlytics (3.7.2):
+    - Fabric (~> 1.6.3)
   - DateTools (1.7.0)
+  - Fabric (1.6.7)
   - MKMapView-ZoomLevel (1.1.0)
   - Moya (7.0.0):
     - Moya/Core (= 7.0.0)
@@ -36,7 +39,9 @@ PODS:
 
 DEPENDENCIES:
   - Cell+Rx
+  - Crashlytics
   - DateTools
+  - Fabric
   - MKMapView-ZoomLevel
   - Moya-ObjectMapper/RxSwift
   - NSObject+Rx
@@ -48,7 +53,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   Cell+Rx: c8cdcc85ee5ee947042005d1fdb04e4ede3e45b2
+  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   MKMapView-ZoomLevel: 30f2f957e34c363387372de059f10127d2b1236f
   Moya: f004b82418fb8165ee1fc9f86190db4b3611fda9
   Moya-ObjectMapper: 52f15abd982efc8ba2ce3fc49619555c926c14a1
@@ -61,6 +68,6 @@ SPEC CHECKSUMS:
   RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: a2381bac840489e2b86c4cdfeec1f9d9e3c7050e
+PODFILE CHECKSUM: 3427b0e54f951730f3659a121587e52953400ce1
 
 COCOAPODS: 1.0.1

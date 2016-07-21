@@ -15,5 +15,7 @@ target 'PokeMap' do
   pod 'Cell+Rx'
   pod 'RxOptional'
   pod 'MKMapView-ZoomLevel'
+  pod 'Fabric'
+  pod 'Crashlytics'
   
 end
