@@ -9,7 +9,11 @@
 import Foundation
 
 extension Array where Element: Equatable {
-  
+
+  func arrayByAppendingContentsOf(elements: Array<Element>) -> Array<Element> {
+    return self + elements
+  }
+
   /// Returns only the unique elements out of an array
   var unique: [Element] {
     var uniqueValues: [Element] = []

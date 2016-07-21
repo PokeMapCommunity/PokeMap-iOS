@@ -13,23 +13,22 @@ import RxOptional
 import RxSwift
 
 class LocationHelper {
-  
+
   static let sharedInstance = LocationHelper()
-  
+
   private let locationManager: CLLocationManager
   private var disposeBag = DisposeBag()
   private var notifiedPokemons = [Pokemon]()
 
   init() {
     locationManager = CLLocationManager()
-    locationManager.distanceFilter = 1
+    locationManager.distanceFilter = 10
   }
-  
+
   func start() {
     locationManager.startMonitoringSignificantLocationChanges()
     locationManager.rx_didUpdateLocations
       .map { $0.first }
-      .debug()
       .filterNil()
       .flatMap { location in
         LocationHelper.loadPokemons(location.coordinate.latitude,
@@ -37,29 +36,34 @@ class LocationHelper {
       }
       .filter { $0.count > 0 }
       .subscribeNext { pokemons in
+        self.notifiedPokemons = self.notifiedPokemons.unique
+          .filter { !$0.expired }
         let watchlistedPokemons = pokemons
-          .filter { Globals.watchlist.contains($0.id) }
-          .filter { self.notifiedPokemons.map { $0.id }.contains($0.id) }
+          .filter { Globals.watchlist.contains($0.id) || !self.notifiedPokemons.contains($0) }
+        self.notifiedPokemons = self.notifiedPokemons
+          .arrayByAppendingContentsOf(watchlistedPokemons)
+          .unique
         guard watchlistedPokemons.count > 0 else {
           return
         }
         self.notifyPokemons(watchlistedPokemons)
-    }.addDisposableTo(disposeBag)
+      }.addDisposableTo(disposeBag)
   }
-  
+
   func stop() {
     locationManager.stopUpdatingLocation()
     disposeBag = DisposeBag()
   }
-  
+
   private func notifyPokemons(pokemons: [Pokemon]) {
     if pokemons.count == 1 {
       showNotification(pokemons[0])
     } else {
+      //pokemons.forEach { showNotification($0) }
       showNotification(pokemons.count)
     }
   }
-  
+
   private func showNotification(pokemon: Pokemon) {
     let notification = UILocalNotification()
     notification.alertBody = "\(pokemon.name) is nearby for another \(pokemon.expirationTime.shortTimeAgoSinceNow())"
@@ -67,19 +71,19 @@ class LocationHelper {
     notification.timeZone = NSTimeZone.defaultTimeZone()
     UIApplication.sharedApplication().scheduleLocalNotification(notification)
   }
-  
+
   private func showNotification(numberOfPokemon: Int) {
     let notification = UILocalNotification()
     notification.alertBody = "\(numberOfPokemon) Rare pokemons nearby!"
     notification.fireDate = NSDate(timeIntervalSinceNow: 1)
     notification.timeZone = NSTimeZone.defaultTimeZone()
     UIApplication.sharedApplication().scheduleLocalNotification(notification)
-    
+
   }
-  
+
   private static func loadPokemons(latitude: Double, longitude: Double) -> Observable<[Pokemon]> {
     return Network.request(API.Pokemons(latitude: latitude, longitude: longitude))
       .mapArray(Pokemon.self, key: "pokemon")
   }
-
+  
 }
