@@ -49,9 +49,8 @@ struct Pokemon: Mappable, Equatable {
     longitude <- map["longitude"]
     isAlive <- map["is_alive"]
   }
-  
 }
 
 func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
-  return lhs.uid == rhs.uid
+  return lhs.id == rhs.id
 }
