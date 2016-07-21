@@ -22,7 +22,7 @@ The following commands will clone the repo and install all the required dependen
 
 ```bash
 git clone https://github.com/PokeMapCommunity/PokeMap-iOS.git
-cd Reddit-MVVM-Benchmark
+cd PokeMap-iOS
 bundle install
 bundle exec pod install
 ```
