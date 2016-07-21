@@ -37,8 +37,9 @@ class LocationHelper {
       .filter { $0.count > 0 }
       .subscribeNext { pokemons in
         self.notifiedPokemons = self.notifiedPokemons.unique.filter { !$0.expired }
-        let watchlistedPokemons = pokemons
-          .filter { Globals.watchlist.contains($0.pokemonId) && !self.notifiedPokemons.contains($0) }
+        let watchlistedPokemons = pokemons.filter {
+          Globals.watchlist.contains($0.pokemonId) && !self.notifiedPokemons.contains($0)
+        }
         self.notifiedPokemons = self.notifiedPokemons
           .arrayByAppendingContentsOf(watchlistedPokemons)
           .unique
@@ -65,7 +66,8 @@ class LocationHelper {
 
   private func showNotification(pokemon: Pokemon) {
     let notification = UILocalNotification()
-    notification.alertBody = "\(pokemon.name) is nearby for another \(pokemon.expirationTime.shortTimeAgoSinceNow())"
+    notification.alertBody =
+      "\(pokemon.name) is nearby for another \(pokemon.expirationTime.shortTimeAgoSinceNow())"
     notification.fireDate = NSDate(timeIntervalSinceNow: 1)
     notification.timeZone = NSTimeZone.defaultTimeZone()
     UIApplication.sharedApplication().scheduleLocalNotification(notification)
@@ -84,5 +86,5 @@ class LocationHelper {
     return Network.request(API.Pokemons(latitude: latitude, longitude: longitude))
       .mapArray(Pokemon.self, key: "pokemon")
   }
-  
+
 }

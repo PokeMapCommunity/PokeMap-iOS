@@ -1,0 +1,6 @@
+excluded:
+  - PokeMap/Externals
+  - PokeMap/Resources
+  - Pods
+  - PokeMapTests
+  - fastlane

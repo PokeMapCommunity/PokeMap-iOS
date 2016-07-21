@@ -11,7 +11,7 @@ import Moya
 import RxSwift
 
 class Network {
-  
+
   private static var provider = RxMoyaProvider<API>(endpointClosure: {
     target -> Endpoint<API> in
     return Endpoint<API>(URL: target.url,
@@ -27,7 +27,7 @@ class Network {
 
 // MARK: Public Methods
 extension Network {
-  
+
   static func request(target: API) -> Observable<Response> {
     return provider.request(target)
   }

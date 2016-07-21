@@ -9,15 +9,15 @@
 import Foundation
 
 class PokedexHelper {
-  
+
   private let pokemonHash: [String: String]
-  
+
   static let sharedInstance = PokedexHelper()
-  
+
   init() {
     pokemonHash = JSONReader.readJSONDictionary("Pokedex")
   }
-  
+
   func allPokemons(maxNumber: Int) -> [String: String] {
     var pokemons = [String: String]()
     for number in 1...maxNumber {
@@ -26,9 +26,9 @@ class PokedexHelper {
     }
     return pokemons
   }
-  
-  func nameFromId(id: String) -> String{
-    return pokemonHash[id] ?? "Missigno"
+
+  func nameFromId(pokemonId: String) -> String {
+    return pokemonHash[pokemonId] ?? "Missigno"
   }
-  
+
 }

@@ -11,28 +11,28 @@ import MapKit
 import SDWebImage
 
 class PokemonAnnotation: NSObject, MKAnnotation {
-  
+
   let coordinate: CLLocationCoordinate2D
-  let id: String
+  let identifier: String
   let title: String?
   var subtitle: String?
   let expiration: NSDate
   let imageURL: NSURL
-  
-  init(coordinate: CLLocationCoordinate2D, id: String, title: String, expiration: NSDate,
+
+  init(coordinate: CLLocationCoordinate2D, identifier: String, title: String, expiration: NSDate,
        imageURL: NSURL) {
       self.coordinate = coordinate
-    self.id = id
+    self.identifier = identifier
     self.title = title
     self.subtitle = nil
     self.expiration = expiration
     self.imageURL = imageURL
   }
-  
+
   var expired: Bool {
     return expiration.compare(NSDate()) != .OrderedDescending
   }
-  
+
   var annotationView: MKAnnotationView {
     let annotationView = MKAnnotationView(annotation: self, reuseIdentifier: "PokemonAnnotation")
     annotationView.enabled = true

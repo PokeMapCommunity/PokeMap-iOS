@@ -10,20 +10,20 @@ import Foundation
 import RxSwift
 
 class PokemonWatchlistItemViewModel {
-  
-  let id: String
+
+  let identifier: String
   let text: String
   var watched: Variable<Bool>
-  
-  
+
+
   var imageURL: NSURL {
-    return NSURL(string: "https://ugc.pokevision.com/images/pokemon/\(id).png")!
+    return NSURL(string: "https://ugc.pokevision.com/images/pokemon/\(identifier).png")!
   }
-  
-  init(id: String, name: String) {
-    self.id = id
-    self.text = "\(id) - \(name)"
-    self.watched = Variable(Globals.watchlist.contains(id))
+
+  init(identifier: String, name: String) {
+    self.identifier = identifier
+    self.text = "\(identifier) - \(name)"
+    self.watched = Variable(Globals.watchlist.contains(identifier))
   }
-  
+
 }

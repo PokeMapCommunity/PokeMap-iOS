@@ -1,0 +1,3 @@
+scheme "Reddit"
+clean true
+output_types "html"

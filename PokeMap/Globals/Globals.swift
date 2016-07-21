@@ -11,15 +11,15 @@ import ObjectMapper
 
 // MARK: Generic
 class Globals {
-  
+
   private static let userDefaults = NSUserDefaults.standardUserDefaults()
-  
+
 }
 
 
 // MARK: User Defaults
 extension Globals {
-  
+
   static var watchlist: [String] {
     get {
       return userDefaults.stringArrayForKey("watchlist") ?? []

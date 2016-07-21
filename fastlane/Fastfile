@@ -1,0 +1,140 @@
+# Customise this file, documentation can be found here:
+# https://github.com/KrauseFx/fastlane/tree/master/docs
+# All available actions: https://github.com/KrauseFx/fastlane/blob/master/docs/Actions.md
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# By default, fastlane will send which actions are used
+# No personal data is shared, more information on https://github.com/fastlane/enhancer
+# Uncomment the following line to opt out
+# opt_out_usage
+
+# If you want to automatically update fastlane if a new version is available:
+update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "1.5.0"
+
+default_platform :ios
+
+
+platform :ios do
+  before_all do
+    # ensure_git_status_clean
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    cocoapods
+
+    # increment_build_number
+
+  end
+
+  desc "Runs all the unit tests"
+  lane :test do
+    scan(scheme: 'PokeMap')
+  end
+
+  desc "Submit a new Beta Build to Fabric"
+  desc "This will also make sure the profile is up to date"
+  lane :fabric do
+    fabric_beta(scheme: "PokeMap")
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :itc do
+    itunes(scheme: "PokeMap")
+  end
+
+  private_lane :fabric_beta do |options|
+    scheme = options[:scheme]
+
+    sigh(
+      development: true
+    )
+
+    build(
+      scheme: scheme,
+      signId: ENV['POKEMAP_SIGNING_IDENTITY_DEV']
+    )
+
+    environment = scheme.upcase
+
+    crashlytics(
+      api_token: ENV['POKEMAP_FABRIC_CLIENT_ID'],
+      build_secret: ENV['POKEMAP_FABRIC_SECRET'],
+      ipa_path: "/tmp/PokeMap.ipa",
+      notes: "Running on #{environment}",
+      groups: ['testers']
+    )
+
+    post_build
+
+    #post_to_slack(scheme: scheme, destination: "Crashlytics")
+  end
+
+  private_lane :itunes do |options|
+    scheme = options[:scheme]
+
+    sigh(
+      skip_install: true,
+      development: false,
+    )
+
+    build(
+      scheme: scheme,
+      signId: ENV['POKEMAP_SIGNING_IDENTITY_PROD']
+    )
+
+    pilot(
+      ipa: "/tmp/PokeMap.ipa",
+      skip_submission: true,
+      team_id: ENV['POKEMAP_ITUNES_TEAM_ID']
+    )
+
+    post_build
+
+    #post_to_slack(scheme: scheme, destination: "TestFlight")
+
+  end
+
+  private_lane :build do |options|
+    scheme = options[:scheme]
+    signingId = options[:signId]
+
+    gym(
+      scheme: "#{scheme}",
+      configuration: scheme,
+      use_legacy_build_api: false,
+      include_bitcode: true,
+      workspace: "PokeMap.xcworkspace",
+      output_directory: "/tmp", # Change to temp folder
+      output_name: "PokeMap.ipa",
+      codesigning_identity: "#{signingId}",
+      xcargs: "ARCHIVE=YES" # Used to tell the Fabric run script to upload dSYM file
+    )
+  end
+
+  private_lane :post_build do
+
+  end
+
+  # You can define as many lanes as you want
+
+  # This lane is called, only if the executed lane was successful
+  after_all do |lane|
+
+    notification(message: "Fastlane finished '#{lane}' successfully") # Mac OS X Notification
+  end
+
+  error do |lane, exception|
+    notification(message: "Fastlane '#{lane}' errored") # Mac OS X Notification
+  end
+end
+
+
+
+# More information about multiple platforms in fastlane: https://github.com/KrauseFx/fastlane/blob/master/docs/Platforms.md
+# All available actions: https://github.com/KrauseFx/fastlane/blob/master/docs/Actions.md

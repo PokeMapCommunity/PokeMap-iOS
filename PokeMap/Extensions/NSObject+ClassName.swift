@@ -9,10 +9,10 @@
 import Foundation
 
 extension NSObject {
-  
+
   /// Returns the className for the Class, removing the 'Reddit.' prefix.
   static var className: String {
     return NSStringFromClass(self).componentsSeparatedByString(".").last ?? NSStringFromClass(self)
   }
-  
+
 }

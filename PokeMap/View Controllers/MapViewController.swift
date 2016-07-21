@@ -13,9 +13,9 @@ import NSObject_Rx
 import Permission
 
 class MapViewController: UIViewController {
-  
+
   @IBOutlet private weak var mapView: MKMapView!
-  
+
   private let viewModel = PokemonMapViewModel()
   private var centerLocation: Variable<CLLocationCoordinate2D>!
   private var userLocation: Variable<CLLocationCoordinate2D>!
@@ -50,7 +50,7 @@ class MapViewController: UIViewController {
         self.loadPokemons(location)
       }.addDisposableTo(rx_disposeBag)
   }
-  
+
   func loadPokemons(location: CLLocationCoordinate2D) {
     viewModel.loadPokemons(location.latitude, longitude: location.longitude)
       .subscribe()
@@ -62,8 +62,8 @@ class MapViewController: UIViewController {
     let expiredAnnotations = annotations.filter { $0.expired }
     mapView.removeAnnotations(expiredAnnotations)
     let validAnnotations = mapView.annotations.flatMap { $0 as? PokemonAnnotation }
-    let pokemonIds = validAnnotations.map { $0.id }
-    let newViewModels = viewModels.filter { !pokemonIds.contains($0.id) }
+    let pokemonIds = validAnnotations.map { $0.identifier }
+    let newViewModels = viewModels.filter { !pokemonIds.contains($0.identifier) }
     mapView.addAnnotations(newViewModels.map { $0.annotation })
   }
 }
@@ -72,8 +72,9 @@ extension MapViewController: MKMapViewDelegate {
   func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
    self.userLocation.value = userLocation.coordinate
   }
-  
-  func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+
+  func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation)
+    -> MKAnnotationView? {
     guard let pokemonAnnotation = annotation as? PokemonAnnotation else {
       return nil
     }

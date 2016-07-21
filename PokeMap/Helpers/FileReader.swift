@@ -9,7 +9,7 @@
 import Foundation
 
 class FileReader {
-  
+
   class func readFileData(filename: String, fileExtension: String) -> NSData {
     if let path = NSBundle(forClass: self).pathForResource(filename, ofType: fileExtension) {
       do {
@@ -24,7 +24,7 @@ class FileReader {
     }
     return NSData()
   }
-  
+
   class func readFileString(filename: String, fileExtension: String) -> String {
     return String(data: readFileData(filename, fileExtension: fileExtension),
                   encoding: NSUTF8StringEncoding) ?? ""

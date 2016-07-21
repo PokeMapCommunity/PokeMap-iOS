@@ -39,8 +39,19 @@
 		30CE0E4C1D3FE37C00E150AA /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CE0E4B1D3FE37C00E150AA /* ReusableCell.swift */; };
 		30CE0E4E1D3FE53F00E150AA /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CE0E4D1D3FE53F00E150AA /* NSObject+ClassName.swift */; };
 		30F6611D1D3FF08B0035150B /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F6611C1D3FF08B0035150B /* LocationHelper.swift */; };
+		30F661251D41386E0035150B /* PokeMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F661241D41386E0035150B /* PokeMapTests.swift */; };
 		A9B73BD4859B0690A265A334 /* Pods_PokeMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072DCD8B4807F5F1AB9C67A /* Pods_PokeMap.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		30F661271D41386E0035150B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30CE0DE91D3FB8C700E150AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30CE0DF01D3FB8C700E150AA;
+			remoteInfo = PokeMap;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		15724E161D40D29E0020F505 /* oeiras.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = oeiras.gpx; sourceTree = "<group>"; };
@@ -77,6 +88,9 @@
 		30CE0E4B1D3FE37C00E150AA /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		30CE0E4D1D3FE53F00E150AA /* NSObject+ClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
 		30F6611C1D3FF08B0035150B /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		30F661221D41386E0035150B /* PokeMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F661241D41386E0035150B /* PokeMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeMapTests.swift; sourceTree = "<group>"; };
+		30F661261D41386E0035150B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7072DCD8B4807F5F1AB9C67A /* Pods_PokeMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		983BBED647ED8D9CDAEEF6A5 /* Pods-PokeMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokeMap/Pods-PokeMap.release.xcconfig"; sourceTree = "<group>"; };
 		E9A616EE7704B8A3FAC34170 /* Pods-PokeMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokeMap/Pods-PokeMap.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +102,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9B73BD4859B0690A265A334 /* Pods_PokeMap.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30F6611F1D41386E0035150B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +126,7 @@
 		30CE0DE81D3FB8C700E150AA = {
 			isa = PBXGroup;
 			children = (
+				30F661231D41386E0035150B /* PokeMapTests */,
 				7649783AA197CFCC71822829 /* Frameworks */,
 				4818B41DC43E65FF3FABA9DA /* Pods */,
 				30CE0DF31D3FB8C700E150AA /* PokeMap */,
@@ -116,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				30CE0DF11D3FB8C700E150AA /* PokeMap.app */,
+				30F661221D41386E0035150B /* PokeMapTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -296,6 +319,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		30F661231D41386E0035150B /* PokeMapTests */ = {
+			isa = PBXGroup;
+			children = (
+				30F661241D41386E0035150B /* PokeMapTests.swift */,
+				30F661261D41386E0035150B /* Info.plist */,
+			);
+			path = PokeMapTests;
+			sourceTree = "<group>";
+		};
 		4818B41DC43E65FF3FABA9DA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +353,7 @@
 			buildConfigurationList = 30CE0E031D3FB8C700E150AA /* Build configuration list for PBXNativeTarget "PokeMap" */;
 			buildPhases = (
 				76EF219BCD65CDA761647166 /* [CP] Check Pods Manifest.lock */,
+				30F6612C1D4138A20035150B /* Swiftlint */,
 				30CE0DED1D3FB8C700E150AA /* Sources */,
 				30CE0DEE1D3FB8C700E150AA /* Frameworks */,
 				30CE0DEF1D3FB8C700E150AA /* Resources */,
@@ -335,6 +368,24 @@
 			productName = PokeMap;
 			productReference = 30CE0DF11D3FB8C700E150AA /* PokeMap.app */;
 			productType = "com.apple.product-type.application";
+		};
+		30F661211D41386E0035150B /* PokeMapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30F6612B1D41386E0035150B /* Build configuration list for PBXNativeTarget "PokeMapTests" */;
+			buildPhases = (
+				30F6611E1D41386E0035150B /* Sources */,
+				30F6611F1D41386E0035150B /* Frameworks */,
+				30F661201D41386E0035150B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30F661281D41386E0035150B /* PBXTargetDependency */,
+			);
+			name = PokeMapTests;
+			productName = PokeMapTests;
+			productReference = 30F661221D41386E0035150B /* PokeMapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -357,6 +408,10 @@
 							};
 						};
 					};
+					30F661211D41386E0035150B = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 30CE0DF01D3FB8C700E150AA;
+					};
 				};
 			};
 			buildConfigurationList = 30CE0DEC1D3FB8C700E150AA /* Build configuration list for PBXProject "PokeMap" */;
@@ -373,6 +428,7 @@
 			projectRoot = "";
 			targets = (
 				30CE0DF01D3FB8C700E150AA /* PokeMap */,
+				30F661211D41386E0035150B /* PokeMapTests */,
 			);
 		};
 /* End PBXProject section */
@@ -392,9 +448,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30F661201D41386E0035150B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		30F6612C1D4138A20035150B /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		5C111B0C2DE4E80399940D2C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,7 +552,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30F6611E1D41386E0035150B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F661251D41386E0035150B /* PokeMapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30F661281D41386E0035150B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30CE0DF01D3FB8C700E150AA /* PokeMap */;
+			targetProxy = 30F661271D41386E0035150B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		30CE0DF81D3FB8C700E150AA /* Main.storyboard */ = {
@@ -592,7 +685,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PokeMap/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.faberventures.PokeMap;
+				PRODUCT_BUNDLE_IDENTIFIER = vc.faber.PokeMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -605,8 +698,32 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PokeMap/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.faberventures.PokeMap;
+				PRODUCT_BUNDLE_IDENTIFIER = vc.faber.PokeMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		30F661291D41386E0035150B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PokeMapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faberventures.PokeMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokeMap.app/PokeMap";
+			};
+			name = Debug;
+		};
+		30F6612A1D41386E0035150B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PokeMapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faberventures.PokeMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokeMap.app/PokeMap";
 			};
 			name = Release;
 		};
@@ -630,6 +747,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		30F6612B1D41386E0035150B /* Build configuration list for PBXNativeTarget "PokeMapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F661291D41386E0035150B /* Debug */,
+				30F6612A1D41386E0035150B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

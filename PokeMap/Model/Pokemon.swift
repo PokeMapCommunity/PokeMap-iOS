@@ -10,27 +10,27 @@ import Foundation
 import ObjectMapper
 
 struct Pokemon: Mappable, Equatable {
-  
+
   var pokemonId: String!
   var expirationTime: NSDate!
   var latitude: Double!
   var longitude: Double!
   var isAlive: Bool!
   var uid: String!
-  var id: String!
-  
+  var identifier: String!
+
   var imageURL: NSURL {
     return NSURL(string: "https://ugc.pokevision.com/images/pokemon/\(pokemonId).png")!
   }
-  
+
   var name: String {
     return PokedexHelper.sharedInstance.nameFromId(pokemonId)
   }
-  
+
   var expired: Bool {
     return expirationTime.compare(NSDate()) != .OrderedDescending
   }
-  
+
   // MARK: JSON
   init?(_ map: Map) {
     let keys = ["id", "uid", "expiration_time", "pokemonId", "latitude", "longitude", "is_alive"]
@@ -39,9 +39,9 @@ struct Pokemon: Mappable, Equatable {
       return nil
     }
   }
-  
+
   mutating func mapping(map: Map) {
-    id <- map["id"]
+    identifier <- map["id"]
     uid <- map["uid"]
     pokemonId <- map["pokemonId"]
     expirationTime <- (map["expiration_time"], EpochDateTransform())
@@ -52,5 +52,5 @@ struct Pokemon: Mappable, Equatable {
 }
 
 func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
-  return lhs.id == rhs.id
+  return lhs.identifier == rhs.identifier
 }

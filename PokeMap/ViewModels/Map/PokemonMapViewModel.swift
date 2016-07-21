@@ -13,9 +13,9 @@ import RxSwift
 import Moya_ObjectMapper
 
 class PokemonMapViewModel {
-  
+
   private let pokemons: Variable<[Pokemon]> = Variable([])
-  
+
   var viewModels: Observable<[PokemonMapItemViewModel]> {
     return Observable.combineLatest(pokemons.asObservable(), NSTimer.rx_timer) { ($0, $1) }
       .map { (pokemons, _) in
@@ -23,7 +23,7 @@ class PokemonMapViewModel {
           .map { PokemonMapItemViewModel(pokemon: $0) }
     }
   }
-  
+
   func loadPokemons(latitude: Double, longitude: Double) -> Observable<Void> {
     return Network.request(API.Pokemons(latitude: latitude, longitude: longitude))
       .mapArray(Pokemon.self, key: "pokemon")
@@ -33,5 +33,5 @@ class PokemonMapViewModel {
         self.pokemons.value = allPokemons
     }.map(void)
   }
-  
+
 }

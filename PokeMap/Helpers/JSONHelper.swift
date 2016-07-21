@@ -9,7 +9,7 @@
 import Foundation
 
 class JSONHelper {
-  
+
   class func flatJSON(json: [String: AnyObject?]?) -> [String: AnyObject]? {
     guard let json = json else {
       return nil
@@ -25,16 +25,16 @@ class JSONHelper {
       return dict
     })
   }
-  
+
   class func containsKeys(json: [String: AnyObject]?, keys: [String]) -> Bool {
     guard keys.count > 0 else {
       return true
     }
-    
+
     guard let json = json else {
       return false
     }
-    
+
     return keys.reduce(true) { $0.0 && json.keys.contains($0.1) }
   }
 }

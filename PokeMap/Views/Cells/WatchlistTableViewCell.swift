@@ -11,10 +11,10 @@ import SDWebImage
 import Cell_Rx
 
 class WatchlistTableViewCell: UITableViewCell, ReusableCell {
-  
+
   @IBOutlet private weak var pokemonImageView: UIImageView!
   @IBOutlet private weak var nameLabel: UILabel!
-  
+
   var viewModel: PokemonWatchlistItemViewModel? {
     didSet {
       if let viewModel = viewModel {
