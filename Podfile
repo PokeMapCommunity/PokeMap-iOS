@@ -14,5 +14,6 @@ target 'PokeMap' do
   pod 'RxCocoa'
   pod 'Cell+Rx'
   pod 'RxOptional'
+  pod 'MKMapView-ZoomLevel'
   
 end

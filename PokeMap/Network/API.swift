@@ -10,7 +10,8 @@ import Foundation
 import Moya
 
 enum API {
-  case Pokemons(latitude: Double, longitude: Double)
+  case Pokemons(latitude: Double, longitude: Double, jobId: String?)
+  case Scan(latitude: Double, longitude: Double)
 }
 
 extension API: TargetType {
@@ -21,8 +22,13 @@ extension API: TargetType {
 
   var path: String {
     switch self {
-    case let .Pokemons(latitude, longitude):
-      return "/map/data/\(latitude)/\(longitude)"
+    case let .Pokemons(latitude, longitude, jobId):
+      guard let jobId = jobId else {
+        return "/map/data/\(latitude)/\(longitude)"
+      }
+      return "/map/data/\(latitude)/\(longitude)/\(jobId)"
+    case let .Scan(latitude, longitude):
+      return "/map/scan/\(latitude)/\(longitude)"
     }
   }
 
@@ -44,6 +50,8 @@ extension API: TargetType {
     switch self {
     case .Pokemons:
       return JSONReader.readJSONData("Pokemons")
+    case .Scan:
+      return JSONReader.readJSONData("Scan")
     }
   }
 

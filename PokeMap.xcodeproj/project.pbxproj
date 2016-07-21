@@ -40,6 +40,8 @@
 		30CE0E4E1D3FE53F00E150AA /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CE0E4D1D3FE53F00E150AA /* NSObject+ClassName.swift */; };
 		30F6611D1D3FF08B0035150B /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F6611C1D3FF08B0035150B /* LocationHelper.swift */; };
 		30F661251D41386E0035150B /* PokeMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F661241D41386E0035150B /* PokeMapTests.swift */; };
+		30F6612F1D413FCC0035150B /* Scan.json in Resources */ = {isa = PBXBuildFile; fileRef = 30F6612E1D413FCC0035150B /* Scan.json */; };
+		30F661311D4140210035150B /* ScanJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F661301D4140210035150B /* ScanJob.swift */; };
 		A9B73BD4859B0690A265A334 /* Pods_PokeMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072DCD8B4807F5F1AB9C67A /* Pods_PokeMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +93,8 @@
 		30F661221D41386E0035150B /* PokeMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F661241D41386E0035150B /* PokeMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeMapTests.swift; sourceTree = "<group>"; };
 		30F661261D41386E0035150B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30F6612E1D413FCC0035150B /* Scan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Scan.json; sourceTree = "<group>"; };
+		30F661301D4140210035150B /* ScanJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanJob.swift; sourceTree = "<group>"; };
 		7072DCD8B4807F5F1AB9C67A /* Pods_PokeMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		983BBED647ED8D9CDAEEF6A5 /* Pods-PokeMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokeMap/Pods-PokeMap.release.xcconfig"; sourceTree = "<group>"; };
 		E9A616EE7704B8A3FAC34170 /* Pods-PokeMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokeMap/Pods-PokeMap.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			children = (
 				30CE0E1B1D3FBEE600E150AA /* Transforms */,
 				30CE0E061D3FB9BF00E150AA /* Pokemon.swift */,
+				30F661301D4140210035150B /* ScanJob.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				30CE0E291D3FC4D700E150AA /* Pokedex.json */,
 				30CE0E121D3FBB4800E150AA /* Pokemons.json */,
 				30CE0E3A1D3FDDA000E150AA /* RarePokemons.json */,
+				30F6612E1D413FCC0035150B /* Scan.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 				30CE0E131D3FBB4800E150AA /* Pokemons.json in Resources */,
 				30CE0E2A1D3FC4D700E150AA /* Pokedex.json in Resources */,
 				30CE0DFC1D3FB8C700E150AA /* Assets.xcassets in Resources */,
+				30F6612F1D413FCC0035150B /* Scan.json in Resources */,
 				30CE0DFA1D3FB8C700E150AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +548,7 @@
 				30F6611D1D3FF08B0035150B /* LocationHelper.swift in Sources */,
 				30CE0E161D3FBD1E00E150AA /* JSONReader.swift in Sources */,
 				30CE0E1A1D3FBE5000E150AA /* FileReader.swift in Sources */,
+				30F661311D4140210035150B /* ScanJob.swift in Sources */,
 				30CE0E431D3FDFE700E150AA /* PokemonWatchlistItemViewModel.swift in Sources */,
 				30CE0E491D3FE35D00E150AA /* WatchlistTableViewCell.swift in Sources */,
 				30CE0E1D1D3FBEF400E150AA /* EpochDateTransform.swift in Sources */,
@@ -755,6 +763,7 @@
 				30F6612A1D41386E0035150B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

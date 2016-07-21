@@ -24,8 +24,8 @@ class PokemonMapViewModel {
     }
   }
 
-  func loadPokemons(latitude: Double, longitude: Double) -> Observable<Void> {
-    return Network.request(API.Pokemons(latitude: latitude, longitude: longitude))
+  func loadPokemons(latitude: Double, longitude: Double, jobId: String?) -> Observable<Void> {
+    return Network.request(API.Pokemons(latitude: latitude, longitude: longitude, jobId: jobId))
       .mapArray(Pokemon.self, key: "pokemon")
       .doOnNext { [weak self] pokemons in
         guard let `self` = self else { return }

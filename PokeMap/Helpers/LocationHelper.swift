@@ -83,7 +83,7 @@ class LocationHelper {
   }
 
   private static func loadPokemons(latitude: Double, longitude: Double) -> Observable<[Pokemon]> {
-    return Network.request(API.Pokemons(latitude: latitude, longitude: longitude))
+    return Network.request(API.Pokemons(latitude: latitude, longitude: longitude, jobId: nil))
       .mapArray(Pokemon.self, key: "pokemon")
   }
 

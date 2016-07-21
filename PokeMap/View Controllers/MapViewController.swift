@@ -11,6 +11,7 @@ import MapKit
 import RxSwift
 import NSObject_Rx
 import Permission
+import MKMapView_ZoomLevel
 
 class MapViewController: UIViewController {
 
@@ -24,6 +25,7 @@ class MapViewController: UIViewController {
     super.viewDidLoad()
     centerLocation = Variable(mapView.centerCoordinate)
     userLocation = Variable(mapView.userLocation.coordinate)
+    mapView.setCenterCoordinate(mapView.userLocation.coordinate, zoomLevel: 14, animated: true)
     bindViewModel()
     Permission.LocationAlways.request { _ in
     }
@@ -34,14 +36,14 @@ class MapViewController: UIViewController {
       .subscribeNext { [weak self] viewModels in
         guard let `self` = self else { return }
         self.setupAnnotations(viewModels)
-    }.addDisposableTo(rx_disposeBag)
+      }.addDisposableTo(rx_disposeBag)
 
     centerLocation.asObservable()
       .throttle(1, scheduler: MainScheduler.instance)
       .subscribeNext { [weak self] location in
         guard let `self` = self else { return }
         self.loadPokemons(location)
-    }.addDisposableTo(rx_disposeBag)
+      }.addDisposableTo(rx_disposeBag)
 
     userLocation.asObservable()
       .throttle(1, scheduler: MainScheduler.instance)
@@ -52,7 +54,29 @@ class MapViewController: UIViewController {
   }
 
   func loadPokemons(location: CLLocationCoordinate2D) {
-    viewModel.loadPokemons(location.latitude, longitude: location.longitude)
+    viewModel.loadPokemons(location.latitude, longitude: location.longitude, jobId: nil)
+      .subscribe()
+      .addDisposableTo(rx_disposeBag)
+  }
+
+  @IBAction func openPokemonGo() {
+    UIApplication.sharedApplication()
+      .openURL(NSURL(string: "b335b2fc-69dc-472c-9e88-e6c97f84091c-3://")!)
+  }
+
+  @IBAction func center() {
+    mapView.setCenterCoordinate(mapView.userLocation.coordinate, animated: true)
+  }
+
+  @IBAction func scan() {
+    let coordinate = mapView.centerCoordinate
+    Network
+      .request(API.Scan(latitude: coordinate.latitude, longitude: coordinate.longitude))
+      .mapObject(ScanJob)
+      .flatMap {
+        return self.viewModel
+          .loadPokemons(coordinate.latitude, longitude: coordinate.longitude, jobId: $0.jobId)
+      }.take(1)
       .subscribe()
       .addDisposableTo(rx_disposeBag)
   }
@@ -70,15 +94,15 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate {
   func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-   self.userLocation.value = userLocation.coordinate
+    self.userLocation.value = userLocation.coordinate
   }
 
   func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation)
     -> MKAnnotationView? {
-    guard let pokemonAnnotation = annotation as? PokemonAnnotation else {
-      return nil
-    }
-    return pokemonAnnotation.annotationView
+      guard let pokemonAnnotation = annotation as? PokemonAnnotation else {
+        return nil
+      }
+      return pokemonAnnotation.annotationView
   }
 
   func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {

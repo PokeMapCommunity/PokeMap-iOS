@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I81-sA-F2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="409"/>
+            <point key="canvasLocation" x="-161" y="584"/>
         </scene>
         <!--PokeMap-->
         <scene sceneID="tne-QT-ifu">
@@ -35,24 +35,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynS-5z-1zI">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PlJ-cy-ir4"/>
                                 </connections>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hy-qE-YW2">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="OPd-Dw-DNJ"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Scan" id="qGP-xo-UDR">
+                                        <connections>
+                                            <action selector="scan" destination="BYZ-38-t0r" id="DqE-qy-Wau"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="O9Z-Hk-f6x"/>
+                                    <barButtonItem title="Center" style="plain" id="lfU-tX-2jt">
+                                        <connections>
+                                            <action selector="center" destination="BYZ-38-t0r" id="CL1-nd-9Ma"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ynS-5z-1zI" secondAttribute="bottom" id="0Wy-dh-npE"/>
-                            <constraint firstItem="ynS-5z-1zI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="DLB-o5-h5V"/>
+                            <constraint firstItem="6hy-qE-YW2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2cw-uC-Q3K"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6hy-qE-YW2" secondAttribute="bottom" id="J0a-73-IIy"/>
+                            <constraint firstItem="ynS-5z-1zI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="d1L-s6-6ns"/>
                             <constraint firstItem="ynS-5z-1zI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jSU-tE-Zd2"/>
+                            <constraint firstAttribute="trailing" secondItem="6hy-qE-YW2" secondAttribute="trailing" id="vb8-U7-B4d"/>
                             <constraint firstAttribute="trailing" secondItem="ynS-5z-1zI" secondAttribute="trailing" id="yUD-0M-hEg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="PokeMap" id="wtu-Zn-tBH">
-                        <barButtonItem key="rightBarButtonItem" title="Watchlist" id="YqB-1c-RgZ">
+                        <barButtonItem key="leftBarButtonItem" title="Watchlist" id="YqB-1c-RgZ">
                             <connections>
                                 <segue destination="Ueb-jm-Fqv" kind="presentation" id="pKI-kF-tvk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Pokemon Go" id="949-iV-WW8">
+                            <connections>
+                                <action selector="openPokemonGo" destination="BYZ-38-t0r" id="bAl-HO-65f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
