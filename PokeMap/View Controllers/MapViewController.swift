@@ -25,7 +25,6 @@ class MapViewController: UIViewController {
     super.viewDidLoad()
     centerLocation = Variable(mapView.centerCoordinate)
     userLocation = Variable(mapView.userLocation.coordinate)
-    mapView.setCenterCoordinate(mapView.userLocation.coordinate, zoomLevel: 14, animated: true)
     bindViewModel()
     Permission.LocationAlways.request { _ in
     }
@@ -51,6 +50,12 @@ class MapViewController: UIViewController {
         guard let `self` = self else { return }
         self.loadPokemons(location)
       }.addDisposableTo(rx_disposeBag)
+    
+    userLocation.asObservable()
+      .throttle(1, scheduler: MainScheduler.instance).take(1)
+      .subscribeNext { [weak self] location in
+        self?.mapView.setCenterCoordinate(location, zoomLevel: 14, animated: true)
+    }.addDisposableTo(rx_disposeBag)
   }
 
   func loadPokemons(location: CLLocationCoordinate2D) {
