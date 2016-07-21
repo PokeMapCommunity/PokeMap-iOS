@@ -6,5 +6,5 @@
 ###################### Automatically generated ######################
 # Feel free to remove the following line if you use fastlane (which you should)
 
-app_identifier "vc.faber.Reddit" # The bundle identifier of your app
-username ENV["REDDIT_APPLE_ID"] # your Apple ID user
+app_identifier "vc.faber.PokeMap" # The bundle identifier of your app
+username ENV["POKEMAP_APPLE_ID"] # your Apple ID user
