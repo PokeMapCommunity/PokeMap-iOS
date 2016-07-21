@@ -9,6 +9,10 @@ PokeMap
 [![GitHub issues](https://img.shields.io/github/issues/PokeMapCommunity/PokeMap-iOS.svg?style=flat)](https://github.com/PokeMapCommunity/PokeMap-iOS/issues)
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/PokeMapCommunity/PokeMap-iOS/blob/master/LICENSE)
 
+PokeMap is a companion app for Pokemon Go. PokeMap allows you to track Pokemon locations by navigating a map or by sending you local notifications for watchlisted Pokemons near you!
+
+![MapScreenshot](https://github.com/PokeMapCommunity/PokeMap-iOS/blob/master/Resources/MapScreenshot.png?raw=true) ![WatchlistScreenshot](https://github.com/PokeMapCommunity/PokeMap-iOS/blob/master/Resources/WatchlistScreenshot.png?raw=true)
+
 ## Getting Started
 
 Run the following two commands to install Xcode's command line tools and bundler, if you don't have that yet.
