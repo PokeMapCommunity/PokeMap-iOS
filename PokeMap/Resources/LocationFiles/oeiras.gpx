@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Xcode">
+
+<wpt lat="38.703804" lon="-9.303489">
+<name>coords0</name>
+<time>1970-01-01T01:02:00Z</time>
+</wpt>
+
+<wpt lat="38.702632" lon="-9.302802">
+<name>coords01</name>
+<time>1970-01-01T01:04:00Z</time>
+</wpt>
+
+<wpt lat="38.703067" lon="-9.301944">
+<name>coords012</name>
+<time>1970-01-01T01:06:00Z</time>
+</wpt>
+
+<wpt lat="38.699283" lon="-9.302759">
+<name>coords0123</name>
+<time>1970-01-01T01:08:00Z</time>
+</wpt>
+
+<wpt lat="38.693656" lon="-9.301987">
+<name>coords01234</name>
+<time>1970-01-01T01:10:00Z</time>
+</wpt>
+
+<wpt lat="38.694658" lon="-9.304969">
+<name>coords012345</name>
+<time>1970-01-01T01:12:00Z</time>
+</wpt>
+
+<wpt lat="38.688645" lon="-9.299605">
+<name>coords0123456</name>
+<time>1970-01-01T01:14:00Z</time>
+</wpt>
+
+<wpt lat="38.690822" lon="-9.302437">
+<name>coords01234567</name>
+<time>1970-01-01T01:16:00Z</time>
+</wpt>
+
+<wpt lat="38.692497" lon="-9.29806">
+<name>coords012345678</name>
+<time>1970-01-01T01:18:00Z</time>
+</wpt>
+
+<wpt lat="38.69037" lon="-9.302373">
+<name>coords0123456789</name>
+<time>1970-01-01T01:20:00Z</time>
+</wpt>
+</gpx>

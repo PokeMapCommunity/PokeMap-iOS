@@ -10,7 +10,6 @@ import Foundation
 import Moya
 
 enum API {
-  
   case Pokemons(latitude: Double, longitude: Double)
 }
 
