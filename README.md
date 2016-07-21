@@ -133,14 +133,14 @@ To make sure Fabric and iTunes can deploy, make sure you have them set to someth
 
 #### Fabric deployment
 
-- `REDDIT_SIGNING_IDENTITY_DEV`: iPhone Developer: Ivan Bruel (ID)
-- `REDDIT_FABRIC_CLIENT_ID`: API Key from [Fabric Organization](https://www.fabric.io/settings/organizations)
-- `REDDIT_FABRIC_SECRET`: Build Secret from [Fabric Organization](https://www.fabric.io/settings/organizations)
+- `POKEMAP_SIGNING_IDENTITY_DEV`: iPhone Developer: Ivan Bruel (ID)
+- `POKEMAP_FABRIC_CLIENT_ID`: API Key from [Fabric Organization](https://www.fabric.io/settings/organizations)
+- `POKEMAP_FABRIC_SECRET`: Build Secret from [Fabric Organization](https://www.fabric.io/settings/organizations)
 
 #### iTunes deployment
 
-- `REDDIT_SIGNING_IDENTITY_PROD`: iPhone Distribution: Company Name (ID)
-- `REDDIT_ITUNES_TEAM_ID`: Team ID from [iTunes Membership](https://developer.apple.com/account/#/membership)
+- `POKEMAP_SIGNING_IDENTITY_PROD`: iPhone Distribution: Company Name (ID)
+- `POKEMAP_ITUNES_TEAM_ID`: Team ID from [iTunes Membership](https://developer.apple.com/account/#/membership)
 
 ### Deployment
 
