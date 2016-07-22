@@ -45,6 +45,10 @@ extension WatchlistViewController: UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     viewModel.watch(indexPath.row)
   }
+	
+	func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+		return .None
+	}
 
   func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
     viewModel.unwatch(indexPath.row)
