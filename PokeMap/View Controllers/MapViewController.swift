@@ -82,6 +82,7 @@ class MapViewController: UIViewController {
 	}
 	
 	@IBAction func center() {
+		mapView.userTrackingMode = .FollowWithHeading
 		mapView.setCenterCoordinate(mapView.userLocation.coordinate, animated: true)
 	}
 	
