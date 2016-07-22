@@ -14,12 +14,14 @@ class WatchlistTableViewCell: UITableViewCell, ReusableCell {
 
   @IBOutlet private weak var pokemonImageView: UIImageView!
   @IBOutlet private weak var nameLabel: UILabel!
+	@IBOutlet private weak var numberLabel: UILabel!
 
   var viewModel: PokemonWatchlistItemViewModel? {
     didSet {
       if let viewModel = viewModel {
         pokemonImageView.sd_setImageWithURL(viewModel.imageURL)
         nameLabel.text = viewModel.text
+				numberLabel.text = "#" + viewModel.identifier
         viewModel.watched.asObservable()
           .subscribeNext { [weak self] watched in
           self?.accessoryType = watched ? .Checkmark : .None
