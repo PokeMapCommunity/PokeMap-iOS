@@ -38,7 +38,7 @@ class LocationHelper {
       .subscribeNext { pokemons in
         self.notifiedPokemons = self.notifiedPokemons.unique.filter { !$0.expired }
         let watchlistedPokemons = pokemons.filter {
-          Globals.watchlist.contains($0.pokemonId) && !self.notifiedPokemons.contains($0)
+          Globals.watchlist.contains(($0.pokemonId as NSNumber).stringValue) && !self.notifiedPokemons.contains($0)
         }
         self.notifiedPokemons = self.notifiedPokemons
           .arrayByAppendingContentsOf(watchlistedPokemons)

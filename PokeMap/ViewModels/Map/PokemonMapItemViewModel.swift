@@ -50,7 +50,7 @@ class PokemonMapItemViewModel {
   init(pokemon: Pokemon) {
     self.pokemon = pokemon
 
-    self.identifier = pokemon.identifier
+    self.identifier = (pokemon.identifier as NSNumber).stringValue
     self.title = "#\(pokemon.pokemonId) - \(pokemon.name)"
     self.imageURL = pokemon.imageURL
     self.latitude = pokemon.latitude
