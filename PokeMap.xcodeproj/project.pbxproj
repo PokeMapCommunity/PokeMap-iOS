@@ -10,7 +10,6 @@
 		15724E171D40D29E0020F505 /* oeiras.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 15724E161D40D29E0020F505 /* oeiras.gpx */; };
 		30CE0DF51D3FB8C700E150AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CE0DF41D3FB8C700E150AA /* AppDelegate.swift */; };
 		30CE0DF71D3FB8C700E150AA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CE0DF61D3FB8C700E150AA /* MapViewController.swift */; };
-		30CE0DFA1D3FB8C700E150AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CE0DF81D3FB8C700E150AA /* Main.storyboard */; };
 		30CE0DFC1D3FB8C700E150AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30CE0DFB1D3FB8C700E150AA /* Assets.xcassets */; };
 		30CE0DFF1D3FB8C700E150AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30CE0DFD1D3FB8C700E150AA /* LaunchScreen.storyboard */; };
 		30CE0E071D3FB9BF00E150AA /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CE0E061D3FB9BF00E150AA /* Pokemon.swift */; };
@@ -42,6 +41,7 @@
 		30F661251D41386E0035150B /* PokeMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F661241D41386E0035150B /* PokeMapTests.swift */; };
 		30F6612F1D413FCC0035150B /* Scan.json in Resources */ = {isa = PBXBuildFile; fileRef = 30F6612E1D413FCC0035150B /* Scan.json */; };
 		30F661311D4140210035150B /* ScanJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F661301D4140210035150B /* ScanJob.swift */; };
+		8AA5EB951D4298D000A426FB /* Main 2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AA5EB941D4298D000A426FB /* Main 2.storyboard */; };
 		A9B73BD4859B0690A265A334 /* Pods_PokeMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072DCD8B4807F5F1AB9C67A /* Pods_PokeMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +60,6 @@
 		30CE0DF11D3FB8C700E150AA /* PokeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30CE0DF41D3FB8C700E150AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30CE0DF61D3FB8C700E150AA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		30CE0DF91D3FB8C700E150AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30CE0DFB1D3FB8C700E150AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30CE0DFE1D3FB8C700E150AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30CE0E001D3FB8C700E150AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		30F6612E1D413FCC0035150B /* Scan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Scan.json; sourceTree = "<group>"; };
 		30F661301D4140210035150B /* ScanJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanJob.swift; sourceTree = "<group>"; };
 		7072DCD8B4807F5F1AB9C67A /* Pods_PokeMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AA5EB941D4298D000A426FB /* Main 2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main 2.storyboard"; sourceTree = "<group>"; };
 		983BBED647ED8D9CDAEEF6A5 /* Pods-PokeMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokeMap/Pods-PokeMap.release.xcconfig"; sourceTree = "<group>"; };
 		E9A616EE7704B8A3FAC34170 /* Pods-PokeMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokeMap/Pods-PokeMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,7 +198,7 @@
 		30CE0E0B1D3FB9D900E150AA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				30CE0DF81D3FB8C700E150AA /* Main.storyboard */,
+				8AA5EB941D4298D000A426FB /* Main 2.storyboard */,
 				30CE0DF61D3FB8C700E150AA /* MapViewController.swift */,
 				30CE0E3C1D3FDF9F00E150AA /* WatchlistViewController.swift */,
 			);
@@ -405,7 +405,7 @@
 				TargetAttributes = {
 					30CE0DF01D3FB8C700E150AA = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 4U3S49Y9TA;
+						DevelopmentTeam = Z48RKT6B3T;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -445,6 +445,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AA5EB951D4298D000A426FB /* Main 2.storyboard in Resources */,
 				30CE0E3B1D3FDDA000E150AA /* RarePokemons.json in Resources */,
 				30CE0DFF1D3FB8C700E150AA /* LaunchScreen.storyboard in Resources */,
 				15724E171D40D29E0020F505 /* oeiras.gpx in Resources */,
@@ -452,7 +453,6 @@
 				30CE0E2A1D3FC4D700E150AA /* Pokedex.json in Resources */,
 				30CE0DFC1D3FB8C700E150AA /* Assets.xcassets in Resources */,
 				30F6612F1D413FCC0035150B /* Scan.json in Resources */,
-				30CE0DFA1D3FB8C700E150AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,15 +580,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		30CE0DF81D3FB8C700E150AA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30CE0DF91D3FB8C700E150AA /* Base */,
-			);
-			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
 		30CE0DFD1D3FB8C700E150AA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

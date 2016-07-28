@@ -22,7 +22,7 @@ class PokemonWatchlistItemViewModel {
 
   init(identifier: String, name: String) {
     self.identifier = identifier
-    self.text = "\(identifier) - \(name)"
+    self.text = name
     self.watched = Variable(Globals.watchlist.contains(identifier))
   }
 
