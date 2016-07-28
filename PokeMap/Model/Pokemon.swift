@@ -11,20 +11,20 @@ import ObjectMapper
 
 struct Pokemon: Mappable, Equatable {
 
-  var pokemonId: String!
+  var pokemonId: Int!
   var expirationTime: NSDate!
   var latitude: Double!
   var longitude: Double!
   var isAlive: Bool!
   var uid: String!
-  var identifier: String!
+  var identifier: Int!
 
   var imageURL: NSURL {
-    return NSURL(string: "https://ugc.pokevision.com/images/pokemon/\(pokemonId).png")!
+    return NSURL(string: "https://ugc.pokevision.com/images/pokemon/\((pokemonId as NSNumber).stringValue).png")!
   }
 
   var name: String {
-    return PokedexHelper.sharedInstance.nameFromId(pokemonId)
+    return PokedexHelper.sharedInstance.nameFromId((pokemonId as NSNumber).stringValue)
   }
 
   var expired: Bool {
