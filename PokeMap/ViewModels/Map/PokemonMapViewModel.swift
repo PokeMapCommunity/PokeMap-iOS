@@ -19,7 +19,7 @@ class PokemonMapViewModel {
   var viewModels: Observable<[PokemonMapItemViewModel]> {
     return Observable.combineLatest(pokemons.asObservable(), NSTimer.rx_timer) { ($0, $1) }
       .map { (pokemons, _) in
-        pokemons.filter { !$0.expired && $0.isAlive }
+        pokemons.filter { !$0.expired }
           .map { PokemonMapItemViewModel(pokemon: $0) }
     }
   }

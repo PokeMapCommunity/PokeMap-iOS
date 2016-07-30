@@ -15,8 +15,6 @@ struct Pokemon: Mappable, Equatable {
   var expirationTime: NSDate!
   var latitude: Double!
   var longitude: Double!
-  var isAlive: Bool!
-  var uid: String!
   var identifier: Int!
 
   var imageURL: NSURL {
@@ -33,7 +31,7 @@ struct Pokemon: Mappable, Equatable {
 
   // MARK: JSON
   init?(_ map: Map) {
-    let keys = ["id", "uid", "expiration_time", "pokemonId", "latitude", "longitude", "is_alive"]
+    let keys = ["id", "expiration_time", "pokemonId", "latitude", "longitude"]
     guard JSONHelper.containsKeys(map.JSONDictionary, keys: keys) else {
       print(map.JSONDictionary)
       return nil
@@ -42,12 +40,10 @@ struct Pokemon: Mappable, Equatable {
 
   mutating func mapping(map: Map) {
     identifier <- map["id"]
-    uid <- map["uid"]
     pokemonId <- map["pokemonId"]
     expirationTime <- (map["expiration_time"], EpochDateTransform())
     latitude <- map["latitude"]
     longitude <- map["longitude"]
-    isAlive <- map["is_alive"]
   }
 }
 
