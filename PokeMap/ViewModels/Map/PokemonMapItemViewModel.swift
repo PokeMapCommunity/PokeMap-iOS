@@ -34,7 +34,7 @@ class PokemonMapItemViewModel {
   }
 
   var annotation: PokemonAnnotation {
-    let annotation = PokemonAnnotation(coordinate: coordinate, identifier: pokemon.uid,
+    let annotation = PokemonAnnotation(coordinate: coordinate, identifier: (pokemon.identifier as NSNumber).stringValue,
                                        title: title, expiration: pokemon.expirationTime,
                                        imageURL: imageURL)
     timeLeft.subscribeNext { timeLeft in
